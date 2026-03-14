@@ -1,0 +1,10 @@
+{
+  "name": "wyzie-status",
+  "version": "1.0.0",
+  "description": "Service status monitor for wyzie. Runs checks every 5s, serves stats on port 4389.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT"
+}
