@@ -72,21 +72,21 @@ let currentMedia = pickMedia();
 
 const CHECKS = [
   {
-    name: 'Subs API — root',
+    name: 'Subs API - root',
     url: 'https://sub.wyzie.io/',
     validate: (status) => status === 200,
   },
   {
-    name: 'Subs API — search',
+    name: 'Subs API - search',
     url: () => {
       currentMedia = pickMedia();
       return `https://sub.wyzie.io/search?id=${currentMedia.id}`;
     },
     validate: (status) => status > 0 && status < 500,
-    label: () => `Subs API — search (${currentMedia.label} tmdb:${currentMedia.id})`,
+    label: () => `Subs API - search (${currentMedia.label} tmdb:${currentMedia.id})`,
   },
   {
-    name: 'Wyzie API — health',
+    name: 'Wyzie API - health',
     url: 'https://api.wyzie.io/health',
     validate: (status, body) => {
       if (status !== 200) return false;
@@ -94,7 +94,7 @@ const CHECKS = [
     },
   },
   {
-    name: 'wyzie-lib — npm',
+    name: 'wyzie-lib - npm',
     url: 'https://registry.npmjs.org/wyzie-lib/latest',
     validate: (status, body) => {
       if (status !== 200) return false;
@@ -110,7 +110,7 @@ const CHECKS = [
 ];
 
 // ---------------------------------------------------------------------------
-// State — main checks
+// State - main checks
 // ---------------------------------------------------------------------------
 
 const state = CHECKS.map(() => ({
@@ -120,14 +120,14 @@ const state = CHECKS.map(() => ({
 }));
 
 // ---------------------------------------------------------------------------
-// State — source checks
+// State - source checks
 // ---------------------------------------------------------------------------
 
 // sourceState['subdl'] = { history: [{ts, status, movieStatus, tvStatus, latencyMs}], name: "SubDL" }
 const sourceState = {};
 
 // ---------------------------------------------------------------------------
-// State — download (/c/) checks
+// State - download (/c/) checks
 // ---------------------------------------------------------------------------
 
 // Test queries per source for download checks
